@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "87e12a10-d5f5-4ff1-b17f-771f58fec480": {
+      "ProjectGuid": "87e12a10-d5f5-4ff1-b17f-771f58fec480",
+      "DisplayName": "Blockchain inplementation",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
