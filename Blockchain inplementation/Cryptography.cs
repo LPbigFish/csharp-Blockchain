@@ -36,8 +36,12 @@ namespace Blockchain_inplementation
             }
             return sb.ToString().ToLower();
         }
+        public byte[] GetBytes(string _sign)
+        {
+            return _sign.Split('-').Select(b => Convert.ToByte(b, 16)).ToArray();
+        }
 
-        public void Genkeys(out string PrivateKey, out string PublicKey)
+        public void Genkeys(out byte[] PrivateKey, out byte[] PublicKey)
         {
             /*
             using (RSACryptoServiceProvider _rsa = new RSACryptoServiceProvider(2048))
@@ -61,9 +65,8 @@ namespace Blockchain_inplementation
 
                 var publicKey = new byte[64];
                 sec.PublicKeyCreate(publicKey, privateKey);
-
-                PrivateKey = BitConverter.ToString(privateKey).Replace("-", string.Empty);
-                PublicKey = BitConverter.ToString(publicKey).Replace("-", string.Empty).Insert(64, ",");
+                PublicKey = publicKey;
+                PrivateKey = privateKey;
             }
         }
 
