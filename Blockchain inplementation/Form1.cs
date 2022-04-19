@@ -34,7 +34,12 @@ namespace Blockchain_inplementation
         {
             richTextBox2.Text = wallet.SignMessage(richTextBox1.Text);
 
-            MessageBox.Show(wallet.VerifyMessage(richTextBox2.Text).ToString());
+            richTextBox3.Text = wallet.lastMessHash;
+        }
+
+        private void Verify_Btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(wallet.VerifyMessage(richTextBox2.Text, richTextBox1.Text).ToString());
         }
     }
 }

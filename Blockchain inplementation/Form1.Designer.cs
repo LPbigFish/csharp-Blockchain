@@ -32,6 +32,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Verify_Btn = new System.Windows.Forms.Button();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -64,17 +66,37 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(12, 230);
+            this.richTextBox2.Location = new System.Drawing.Point(256, 263);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(487, 208);
+            this.richTextBox2.Size = new System.Drawing.Size(243, 175);
             this.richTextBox2.TabIndex = 3;
             this.richTextBox2.Text = "";
+            // 
+            // Verify_Btn
+            // 
+            this.Verify_Btn.Location = new System.Drawing.Point(207, 12);
+            this.Verify_Btn.Name = "Verify_Btn";
+            this.Verify_Btn.Size = new System.Drawing.Size(100, 29);
+            this.Verify_Btn.TabIndex = 4;
+            this.Verify_Btn.Text = "Verify Message";
+            this.Verify_Btn.UseVisualStyleBackColor = true;
+            this.Verify_Btn.Click += new System.EventHandler(this.Verify_Btn_Click);
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(12, 263);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(238, 175);
+            this.richTextBox3.TabIndex = 5;
+            this.richTextBox3.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
+            this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.Verify_Btn);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.richTextBox1);
@@ -92,6 +114,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button Verify_Btn;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }
 

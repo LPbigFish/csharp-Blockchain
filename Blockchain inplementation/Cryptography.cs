@@ -13,26 +13,19 @@ namespace Blockchain_inplementation
         public ASCIIEncoding byter = new ASCIIEncoding();
         public RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
 
-        public static string sha256(string randomString)
+        public static byte[] Sha256(byte[] randomString)
         {
-            var crypt = new System.Security.Cryptography.SHA256Managed();
-            var hash = new System.Text.StringBuilder();
-            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(randomString));
-            foreach (byte theByte in crypto)
-            {
-                hash.Append(theByte.ToString("x2"));
-            }
-            return hash.ToString();
+            var crypt = new SHA256Managed();
+            return crypt.ComputeHash(randomString);
         }
-        public static string r160(string password)
+        public static string R160(byte[] pass)
         {
             RIPEMD160 r160 = RIPEMD160Managed.Create();
-            byte[] myByte = System.Text.Encoding.ASCII.GetBytes(password);
-            byte[] encrypted = r160.ComputeHash(myByte);
+            var hash = r160.ComputeHash(pass);
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < encrypted.Length; i++)
+            for (int i = 0; i < hash.Length; i++)
             {
-                sb.Append(encrypted[i].ToString("X2"));
+                sb.Append(hash[i].ToString("X2"));
             }
             return sb.ToString().ToLower();
         }

@@ -91,3 +91,34 @@ C:\Users\Uzivatel\Documents\GitHub\csharp-Blockchain\Blockchain inplementation\o
 C:\Users\Uzivatel\Documents\GitHub\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.CopyComplete
 C:\Users\Uzivatel\Documents\GitHub\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.exe
 C:\Users\Uzivatel\Documents\GitHub\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.pdb
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\native\win-x64\secp256k1.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\native\win-x86\secp256k1.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\native\linux-x64\libsecp256k1.so
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\native\linux-arm64\libsecp256k1.so
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\native\osx-x64\libsecp256k1.dylib
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\native\osx-arm64\libsecp256k1.dylib
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\Blockchain inplementation.exe.config
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\Blockchain inplementation.exe
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\Blockchain inplementation.pdb
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\BigMath.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\Secp256k1.Net.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Buffers.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Memory.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\BigMath.xml
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\Secp256k1.Net.pdb
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\Secp256k1.Net.xml
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Buffers.xml
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Memory.xml
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.AssemblyReference.cache
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.SuggestedBindingRedirects.cache
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain_inplementation.Form1.resources
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain_inplementation.Properties.Resources.resources
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.GenerateResource.cache
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.CoreCompileInputs.cache
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.CopyComplete
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.exe
+C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.pdb
