@@ -21,6 +21,7 @@ namespace Blockchain_inplementation
 
             string[] pubBits = BitConverter.ToString(PublicKey).Insert(64, ",").Split(',');
             BigInteger bigKeyY = new BigInteger(GetBytes(pubBits[1]));
+
             if (bigKeyY % 2 == 0)
             {
                 pubBits[0] = "02-" + pubBits[0];
@@ -31,6 +32,7 @@ namespace Blockchain_inplementation
             }
 
             address = R160(Sha256(GetBytes(pubBits[0])));
+            address = BitConverter.ToString(GetBytes(pubBits[0]));
             Compressed = GetBytes(pubBits[0]);
         }
 
