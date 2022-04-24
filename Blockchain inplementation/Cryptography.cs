@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Secp256k1Net;
+using Base58Check;
 
 namespace Blockchain_inplementation
 {
@@ -29,9 +30,36 @@ namespace Blockchain_inplementation
             }
             return sb.ToString().ToLower();
         }
-        public byte[] GetBytes(string _sign)
+
+
+
+
+
+        public byte[] GetBytes(string Bytes)
         {
-            return _sign.Split('-').Select(b => Convert.ToByte(b, 16)).ToArray();
+            return Bytes.Split('-').Select(b => Convert.ToByte(b, 16)).ToArray();
+        }
+
+        public byte[] Checksum(byte[] Signature)
+        {
+            return GetBytes(BitConverter.ToString(Sha256(Sha256(Signature))).Remove(11));
+        }
+
+        public string EncodeBase58(byte[] Data)
+        {
+            return Base58CheckEncoding.EncodePlain(Data);
+        }
+
+        public byte[] DecodeBase58(string Data)
+        {
+            return Base58CheckEncoding.DecodePlain(Data);
+        }
+
+        public string CreateWIFKey(byte[] PrivateKey)
+        {
+            string extpriv = "08-" + BitConverter.ToString(PrivateKey) + "-01";
+            byte[] Ext = GetBytes(extpriv).Concat(Checksum(Sha256(Sha256(GetBytes(extpriv))))).ToArray();
+            return EncodeBase58(Ext);
         }
 
         public void Genkeys(out byte[] PrivateKey, out byte[] PublicKey)

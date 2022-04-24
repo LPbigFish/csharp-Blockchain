@@ -9,12 +9,14 @@ namespace Blockchain_inplementation
         byte[] PrivateKey;
         byte[] PublicKey;
         byte[] Compressed;
+        string WIFPrivateKey;
         public string address;
         public string lastMessHash;
 
 
         public Wallet()
             : base() => Genkeys(out PrivateKey, out PublicKey);
+
         public void GenAddress()
         {
             //string[] pub = BitConverter.ToString(PublicKey).Replace("-", string.Empty).Insert(64, ",").Split(',');
@@ -31,9 +33,10 @@ namespace Blockchain_inplementation
                 pubBits[0] = "03-" + pubBits[0];
             }
 
-            address = R160(Sha256(GetBytes(pubBits[0])));
-            address = BitConverter.ToString(GetBytes(pubBits[0]));
             Compressed = GetBytes(pubBits[0]);
+            WIFPrivateKey = CreateWIFKey(PrivateKey);
+
+            address = R160(Sha256(GetBytes(pubBits[0])));
         }
 
         public string SignMessage(string _mess)

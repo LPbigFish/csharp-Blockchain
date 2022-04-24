@@ -122,3 +122,4 @@ C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\
 C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.csproj.CopyComplete
 C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.exe
 C:\Users\filip.stegner\Source\Repos\csharp-Blockchain\Blockchain inplementation\obj\Debug\Blockchain inplementation.pdb
+C:\Users\Uzivatel\Documents\GitHub\csharp-Blockchain\Blockchain inplementation\bin\Debug\Base58Check.dll
