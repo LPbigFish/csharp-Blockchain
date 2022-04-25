@@ -50,7 +50,7 @@ namespace Blockchain_inplementation
             using (var secp256k1 = new Secp256k1Net.Secp256k1())
             {
                 var messBytes = UTF8Encoding.ASCII.GetBytes(_mess);
-                var messHash = System.Security.Cryptography.SHA256.Create().ComputeHash(messBytes);
+                var messHash = Sha256(messBytes);
                 var signature = new byte[64];
 
                 secp256k1.Sign(signature, messHash, PrivateKey);
