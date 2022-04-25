@@ -41,5 +41,16 @@ namespace Blockchain_inplementation
         {
             MessageBox.Show(wallet.VerifyMessage(richTextBox2.Text, richTextBox1.Text).ToString());
         }
+
+        private void PhraseBTN_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string item in wallet.WalletGetPhrase(openFileDialog1.FileName))
+                {
+                    richTextBox3.Text += item;
+                }
+            }
+        }
     }
 }

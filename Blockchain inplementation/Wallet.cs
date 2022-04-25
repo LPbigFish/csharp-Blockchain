@@ -36,7 +36,13 @@ namespace Blockchain_inplementation
             Compressed = GetBytes(pubBits[0]);
             WIFPrivateKey = CreateWIFKey(PrivateKey);
 
-            address = R160(Sha256(GetBytes(pubBits[0])));
+            //address = R160(Sha256(GetBytes(pubBits[0])));
+            address = CreateWIFKey(PrivateKey);
+        }
+
+        public string[] WalletGetPhrase(string stream)
+        {
+            return GetPhrase(stream);
         }
 
         public string SignMessage(string _mess)

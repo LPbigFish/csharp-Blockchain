@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Secp256k1Net;
 using Base58Check;
+using System.IO;
 
 namespace Blockchain_inplementation
 {
@@ -31,9 +32,13 @@ namespace Blockchain_inplementation
             return sb.ToString().ToLower();
         }
 
-
-
-
+        public static string[] GetPhrase(string stream)
+        {
+            using (StreamReader str = new StreamReader(stream))
+            {
+                return str.ReadToEnd().Split('\n');
+            }
+        }
 
         public byte[] GetBytes(string Bytes)
         {

@@ -34,6 +34,8 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.Verify_Btn = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.PhraseBTN = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button1
@@ -74,7 +76,7 @@
             // 
             // Verify_Btn
             // 
-            this.Verify_Btn.Location = new System.Drawing.Point(207, 12);
+            this.Verify_Btn.Location = new System.Drawing.Point(293, 12);
             this.Verify_Btn.Name = "Verify_Btn";
             this.Verify_Btn.Size = new System.Drawing.Size(100, 29);
             this.Verify_Btn.TabIndex = 4;
@@ -90,11 +92,26 @@
             this.richTextBox3.TabIndex = 5;
             this.richTextBox3.Text = "";
             // 
+            // PhraseBTN
+            // 
+            this.PhraseBTN.Location = new System.Drawing.Point(118, 12);
+            this.PhraseBTN.Name = "PhraseBTN";
+            this.PhraseBTN.Size = new System.Drawing.Size(100, 29);
+            this.PhraseBTN.TabIndex = 6;
+            this.PhraseBTN.Text = "GetPhrase";
+            this.PhraseBTN.UseVisualStyleBackColor = true;
+            this.PhraseBTN.Click += new System.EventHandler(this.PhraseBTN_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
+            this.Controls.Add(this.PhraseBTN);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.Verify_Btn);
             this.Controls.Add(this.richTextBox2);
@@ -116,6 +133,8 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button Verify_Btn;
         private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Button PhraseBTN;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
