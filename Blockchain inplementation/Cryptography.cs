@@ -32,15 +32,30 @@ namespace Blockchain_inplementation
             return sb.ToString().ToLower();
         }
 
-        public static string[] GetPhrase(string stream)
+        public static string[] GetPhrase(string stream, byte[] privateKey)
         {
-            using (StreamReader str = new StreamReader(stream))
+            string[] words;
+            
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
             {
-                return str.ReadToEnd().Split('\n');
+                using (StreamReader str = new StreamReader(stream))
+                {
+                    words = str.ReadToEnd().Split('\n');
+                }
+
+                byte[] bytes = new byte[16];
+                rng.GetBytes(bytes);
+
+                string[] checksum = Sha256(bytes).Select(x => Convert.ToString(x, 2).PadLeft(8, '0')).ToArray();
+
+
+                words = bytes.Select(x => Convert.ToString(x, 2).PadLeft(8, '0')).ToArray();
+
+                return words;
             }
         }
 
-        public byte[] GetBytes(string Bytes)
+        public static byte[] GetBytes(string Bytes)
         {
             return Bytes.Split('-').Select(b => Convert.ToByte(b, 16)).ToArray();
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace Blockchain_inplementation
 {
@@ -44,12 +45,9 @@ namespace Blockchain_inplementation
 
         private void PhraseBTN_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            foreach (string item in wallet.WalletGetPhrase(Directory.GetCurrentDirectory() + "/wordlist.txt"))
             {
-                foreach (string item in wallet.WalletGetPhrase(openFileDialog1.FileName))
-                {
-                    richTextBox3.Text += item;
-                }
+                richTextBox3.Text += item;
             }
         }
     }
