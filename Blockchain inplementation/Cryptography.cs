@@ -12,7 +12,6 @@ namespace Blockchain_inplementation
 {
     class Cryptography
     {
-        public ASCIIEncoding byter = new ASCIIEncoding();
         public RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
 
         public static byte[] Sha256(byte[] randomString)
@@ -40,19 +39,76 @@ namespace Blockchain_inplementation
             {
                 using (StreamReader str = new StreamReader(stream))
                 {
-                    words = str.ReadToEnd().Split('\n');
+                    words = str.ReadToEnd().Replace("\r", string.Empty).Split('\n');
+                    string[] funny = words;
+                    string[] splitter = { "01011000" };
+                    byte[] bytes = privateKey;
+
+
+                    words = bytes.Select(x => Convert.ToString(x, 2).PadLeft(8, '0')).ToArray();
+
+                    foreach (string item in words)
+                    {
+                        splitter[0] += item;
+                    }
+
+                    splitter = MySplit(splitter[0]);
+
+                    int[] converted = new int[24];
+
+                    for (int i = 0; i < splitter.Length; i++)
+                    {
+                        converted[i] = Convert.ToInt32(splitter[i], 2);
+                    }
+
+                    string[] final = new string[24];
+
+                    for (int i = 0; i < converted.Length; i++)
+                    {
+                        final[i] = funny[converted[i]];
+                    }
+                    str.Close();
+                    return final;
+                }
+            }
+        }
+
+        public static string ReversePhrase(string stream, string words)
+        {
+            using (StreamReader str = new StreamReader(stream))
+            {
+                string[] wordlist = str.ReadToEnd().Replace("\r", string.Empty).Split('\n');
+                string[] list = words.Split(' ');
+                int[] DecimalCount = new int[24];
+                string[] Binary = new string[24];
+
+                for (int i = 0; i < list.Length - 1; i++)
+                {
+                    DecimalCount[i] = WordSearch(stream, list[i]);
+                    Binary[i] = Convert.ToString(DecimalCount[i], 2);
                 }
 
-                byte[] bytes = new byte[16];
-                rng.GetBytes(bytes);
+                for (int i = 1; i < Binary.Length; i++)
+                {
+                    Binary[0] += Binary[i];
+                }
 
-                string[] checksum = Sha256(bytes).Select(x => Convert.ToString(x, 2).PadLeft(8, '0')).ToArray();
+                Binary[0] = String.Join(String.Empty, Binary);
 
+                Binary[0] = Binary[0].Remove(0, 8);
+                int numOfBytes = Binary[0].Length / 8;
+                byte[] bytes = new byte[numOfBytes];
+                for (int i = 0; i < numOfBytes; ++i)
+                {
+                    bytes[i] = Convert.ToByte(Binary[0].Substring(8 * i, 8), 2);
+                }
 
-                words = bytes.Select(x => Convert.ToString(x, 2).PadLeft(8, '0')).ToArray();
+                str.Close();
 
-                return words;
+                return BitConverter.ToString(bytes);
             }
+
+            
         }
 
         public static byte[] GetBytes(string Bytes)
@@ -84,19 +140,6 @@ namespace Blockchain_inplementation
 
         public void Genkeys(out byte[] PrivateKey, out byte[] PublicKey)
         {
-            /*
-            using (RSACryptoServiceProvider _rsa = new RSACryptoServiceProvider(2048))
-            {
-                _rsa.PersistKeyInCsp = false;
-                PrivateKey = _rsa.ExportParameters(true);
-                PublicKey = _rsa.ExportParameters(false);
-                StringifiedPublicKey = _rsa.ToXmlString(false);
-                StringifiedPublicKey = StringifiedPublicKey.Remove(0, 22);
-                StringifiedPublicKey = StringifiedPublicKey.Remove(StringifiedPublicKey.Length - 49, 49);
-                StringifiedPublicKey = BitConverter.ToString(Convert.FromBase64String(StringifiedPublicKey), 0).ToString();
-            }
-            */
-
             using (var sec = new Secp256k1())
             {
                 var privateKey = new byte[32];
@@ -111,6 +154,50 @@ namespace Blockchain_inplementation
             }
         }
 
+        public static string[] MySplit(string input)
+        {
+            List<string> result = new List<string>();
+            int count = 0;
+            string temp = "";
+
+            foreach (char c in input)
+            {
+                temp += c;
+                count++;
+                if (count == 11)
+                {
+                    result.Add(temp);
+                    temp = "";
+                    count = 0;
+                }
+            }
+
+            if (temp != "")
+                result.Add(temp);
+
+            return result.ToArray();
+        }
+
+        public static int WordSearch(string stream, string word)
+        {
+            using (StreamReader str = new StreamReader(stream))
+            {
+                //string[] wordlist = str.ReadToEnd().Replace("\r", string.Empty).Split('\n');
+                string line;
+                int counter = 0;
+
+                while ((line = str.ReadLine()) != null)
+                {
+                    if (line.Contains(word))
+                    {
+                        return counter;
+                    }
+
+                    counter++;
+                }
+                return 0;
+            }
+        }
 
         public Cryptography()
         {

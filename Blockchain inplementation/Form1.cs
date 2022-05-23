@@ -22,13 +22,19 @@ namespace Blockchain_inplementation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            wallet = new Wallet();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            wallet = new Wallet();
             wallet.GenAddress();
-            richTextBox1.Text = wallet.address;
+            richTextBox1.Text = BitConverter.ToString(wallet.PrivateKey);
+            richTextBox3.Text = "";
+            foreach (string item in wallet.WalletGetPhrase(Directory.GetCurrentDirectory() + "/wordlist.txt"))
+            {
+                richTextBox3.Text += $"{item} ";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,10 +51,7 @@ namespace Blockchain_inplementation
 
         private void PhraseBTN_Click(object sender, EventArgs e)
         {
-            foreach (string item in wallet.WalletGetPhrase(Directory.GetCurrentDirectory() + "/wordlist.txt"))
-            {
-                richTextBox3.Text += item;
-            }
+            richTextBox2.Text = wallet.WalletReversePhrase(Directory.GetCurrentDirectory() + "/wordlist.txt", richTextBox3.Text);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Blockchain_inplementation
 {
     internal class Wallet : Cryptography
     {
-        byte[] PrivateKey;
+        public byte[] PrivateKey;
         byte[] PublicKey;
         byte[] Compressed;
         string WIFPrivateKey;
@@ -43,6 +43,11 @@ namespace Blockchain_inplementation
         public string[] WalletGetPhrase(string stream)
         {
             return GetPhrase(stream, PrivateKey);
+        }
+
+        public string WalletReversePhrase(string stream, string words)
+        {
+            return ReversePhrase(stream, words);
         }
 
         public string SignMessage(string _mess)
