@@ -190,7 +190,7 @@ namespace Blockchain_inplementation
                 {
                     if (line.Contains(word))
                     {
-                        return counter;
+                        return counter + 1;
                     }
 
                     counter++;
