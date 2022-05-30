@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
 using System.IO;
 
 namespace Blockchain_inplementation
@@ -30,11 +22,7 @@ namespace Blockchain_inplementation
             wallet = new Wallet();
             wallet.GenAddress();
             richTextBox1.Text = BitConverter.ToString(wallet.PrivateKey);
-            richTextBox3.Text = "";
-            foreach (string item in wallet.WalletGetPhrase(Directory.GetCurrentDirectory() + "/wordlist.txt"))
-            {
-                richTextBox3.Text += $"{item} ";
-            }
+            richTextBox3.Text = String.Join(" ", wallet.WalletGetPhrase(Directory.GetCurrentDirectory() + "/wordlist.txt"));
         }
 
         private void button2_Click(object sender, EventArgs e)

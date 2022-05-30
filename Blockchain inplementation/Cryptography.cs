@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using Secp256k1Net;
 using Base58Check;
 using System.IO;
@@ -41,7 +40,7 @@ namespace Blockchain_inplementation
                 {
                     words = str.ReadToEnd().Replace("\r", string.Empty).Split('\n');
                     string[] funny = words;
-                    string[] splitter = { "01011000" };
+                    string[] splitter = { "11010010" };
                     byte[] bytes = privateKey;
 
 
@@ -81,26 +80,27 @@ namespace Blockchain_inplementation
                 string[] list = words.Split(' ');
                 int[] DecimalCount = new int[24];
                 string[] Binary = new string[24];
+                string oneBinary = "";
 
-                for (int i = 0; i < list.Length - 1; i++)
+                for (int i = 0; i < list.Length; i++)
                 {
-                    DecimalCount[i] = WordSearch(stream, list[i]);
-                    Binary[i] = Convert.ToString(DecimalCount[i], 2);
+                    DecimalCount[i] = (WordSearch(stream, list[i]) - 1);
+                    Binary[i] = Convert.ToString(DecimalCount[i], 2).PadLeft(11, '0');
                 }
 
-                for (int i = 1; i < Binary.Length; i++)
+                for (int i = 0; i < Binary.Length; i++)
                 {
-                    Binary[0] += Binary[i];
+                    oneBinary += Binary[i];
                 }
 
-                Binary[0] = String.Join(String.Empty, Binary);
+                oneBinary = String.Join(String.Empty, Binary);
 
-                Binary[0] = Binary[0].Remove(0, 8);
-                int numOfBytes = Binary[0].Length / 8;
+                oneBinary = oneBinary.Remove(0, 8);
+                int numOfBytes = oneBinary.Length / 8;
                 byte[] bytes = new byte[numOfBytes];
                 for (int i = 0; i < numOfBytes; ++i)
                 {
-                    bytes[i] = Convert.ToByte(Binary[0].Substring(8 * i, 8), 2);
+                    bytes[i] = Convert.ToByte(oneBinary.Substring(8 * i, 8), 2);
                 }
 
                 str.Close();
@@ -151,6 +151,20 @@ namespace Blockchain_inplementation
                 sec.PublicKeyCreate(publicKey, privateKey);
                 PublicKey = publicKey;
                 PrivateKey = privateKey;
+            }
+        }
+
+        public void Genkeys(byte[] PrivateKey, out byte[] PublicKey)
+        {
+            using (var sec = new Secp256k1())
+            {
+                var rnd = RandomNumberGenerator.Create();
+                do { rnd.GetBytes(PrivateKey); }
+                while (!sec.SecretKeyVerify(PrivateKey));
+
+                var publicKey = new byte[64];
+                sec.PublicKeyCreate(publicKey, PrivateKey);
+                PublicKey = publicKey;
             }
         }
 

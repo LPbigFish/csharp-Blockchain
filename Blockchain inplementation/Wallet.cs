@@ -19,8 +19,6 @@ namespace Blockchain_inplementation
 
         public void GenAddress()
         {
-            //string[] pub = BitConverter.ToString(PublicKey).Replace("-", string.Empty).Insert(64, ",").Split(',');
-
             string[] pubBits = BitConverter.ToString(PublicKey).Insert(64, ",").Split(',');
             BigInteger bigKeyY = new BigInteger(GetBytes(pubBits[1]));
 
@@ -47,6 +45,9 @@ namespace Blockchain_inplementation
 
         public string WalletReversePhrase(string stream, string words)
         {
+
+            Genkeys(GetBytes(ReversePhrase(stream, words)),out PublicKey);
+
             return ReversePhrase(stream, words);
         }
 
