@@ -7,6 +7,7 @@ namespace Blockchain_inplementation
     public partial class Form1 : Form
     {
         private Wallet wallet;
+        private Blockchain blockchain;
         public Form1()
         {
             InitializeComponent();
@@ -14,7 +15,7 @@ namespace Blockchain_inplementation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            blockchain = new Blockchain();
         }
 
         private void button1_Click(object sender, EventArgs e)

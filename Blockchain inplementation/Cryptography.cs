@@ -22,12 +22,12 @@ namespace Blockchain_inplementation
         {
             RIPEMD160 r160 = RIPEMD160Managed.Create();
             var hash = r160.ComputeHash(pass);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("X2"));
-            }
-            return sb.ToString().ToLower();
+            return BitConverter.ToString(hash);
+        }
+
+        public uint GetUnixTime()
+        {
+            return (uint)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
         public static string[] GetPhrase(string stream, byte[] privateKey)

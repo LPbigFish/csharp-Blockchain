@@ -7,7 +7,7 @@ namespace Blockchain_inplementation
     internal class Wallet : Cryptography
     {
         public byte[] PrivateKey;
-        byte[] PublicKey;
+        public byte[] PublicKey;
         byte[] Compressed;
         string WIFPrivateKey;
         public string address;
@@ -35,7 +35,25 @@ namespace Blockchain_inplementation
             WIFPrivateKey = CreateWIFKey(PrivateKey);
 
             //address = R160(Sha256(GetBytes(pubBits[0])));
-            address = R160(Sha256(GetBytes(pubBits[0])));
+            address = EncodeBase58(GetBytes(R160(Sha256(GetBytes(pubBits[0]))))).ToUpper();
+
+            if (address.StartsWith("X"))
+            {
+                address = "Bx" + address.Remove(0,1);
+            }
+            else
+            {
+                address = "Bx" + address;
+            }
+            if (address.Length == 29)
+            {
+                address += "T";
+            }
+            else if (address.Length == 28)
+            {
+                address += "1T";
+            }
+
         }
 
         public string[] WalletGetPhrase(string stream)

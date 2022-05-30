@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Blockchain_inplementation
+﻿namespace Blockchain_inplementation
 {
-    internal class Block : Cryptography
+    internal class Block
     {
-        public readonly uint height;
-        public readonly string prevBlock = "";
-        public readonly string data = "";
-        public readonly uint timestamp;
+        public string prevBlock = "";
+        public string data = "";
+        public uint timestamp;
+        public uint target;
+        public uint nonce;
+        public string[] transactions;
 
-        public Block(uint height, string prevBlock, string data, uint timestamp)
+        public Block(string prevBlock, string root, uint timestamp, uint target, uint nonce, string[] transactions)
         {
-            this.height = height;
             this.prevBlock = prevBlock;
-            this.data = data;
+            this.data = root;
             this.timestamp = timestamp;
+            this.target = target;
+            this.nonce = nonce;
+            this.transactions = transactions;
         }
     }
 }
