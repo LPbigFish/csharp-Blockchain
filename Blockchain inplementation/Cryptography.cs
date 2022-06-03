@@ -34,8 +34,6 @@ namespace Blockchain_inplementation
         {
             string[] words;
             
-            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
-            {
                 using (StreamReader str = new StreamReader(stream))
                 {
                     words = str.ReadToEnd().Replace("\r", string.Empty).Split('\n');
@@ -69,7 +67,6 @@ namespace Blockchain_inplementation
                     str.Close();
                     return final;
                 }
-            }
         }
 
         public static string ReversePhrase(string stream, string words)
