@@ -42,5 +42,11 @@ namespace Blockchain_inplementation
         {
             richTextBox2.Text = wallet.WalletReversePhrase(Directory.GetCurrentDirectory() + "/wordlist.txt", richTextBox3.Text);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
+        }
     }
 }

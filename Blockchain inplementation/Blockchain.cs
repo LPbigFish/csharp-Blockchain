@@ -6,7 +6,7 @@ namespace Blockchain_inplementation
 {
     internal class Blockchain : Cryptography
     {
-        List<Block> blockchain = new List<Block>();
+        public List<Block> blockchain = new List<Block>();
         readonly string genesis = "0000000000000000000000000000000000000000000000000000000000000000";
         public Blockchain()
         {

@@ -35,7 +35,7 @@
             this.Verify_Btn = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.PhraseBTN = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -68,7 +68,7 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(256, 263);
+            this.richTextBox2.Location = new System.Drawing.Point(256, 246);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(243, 175);
             this.richTextBox2.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(12, 263);
+            this.richTextBox3.Location = new System.Drawing.Point(12, 246);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(238, 175);
             this.richTextBox3.TabIndex = 5;
@@ -102,15 +102,22 @@
             this.PhraseBTN.UseVisualStyleBackColor = true;
             this.PhraseBTN.Click += new System.EventHandler(this.PhraseBTN_Click);
             // 
-            // openFileDialog1
+            // button3
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.button3.Location = new System.Drawing.Point(12, 436);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(113, 29);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Start The Chain";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 450);
+            this.ClientSize = new System.Drawing.Size(511, 472);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.PhraseBTN);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.Verify_Btn);
@@ -134,7 +141,7 @@
         private System.Windows.Forms.Button Verify_Btn;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Button PhraseBTN;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button3;
     }
 }
 
